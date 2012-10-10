@@ -8,4 +8,4 @@ decoder.on("data", function(data) {
   console.log(data);
 });
 
-decoder.write("l4:aaaa4:aaaae");
+decoder.write("d1:ai1234e1:bli1ei2eee");
