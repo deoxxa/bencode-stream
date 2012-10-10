@@ -2,10 +2,17 @@
 
 var bencode = require("./index");
 
-var decoder = new bencode.Decoder();
+var decoder = new bencode.Decoder(),
+    encoder = new bencode.Encoder();
 
 decoder.on("data", function(data) {
-  console.log(data);
+  console.log("decoded", data);
+
+  encoder.write(data);
+});
+
+encoder.on("data", function(data) {
+  console.log("encoded", data);
 });
 
 decoder.write("d2");
