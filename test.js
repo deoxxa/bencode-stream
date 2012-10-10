@@ -8,7 +8,8 @@ decoder.on("data", function(data) {
   console.log(data);
 });
 
-decoder.write("d1");
-decoder.write(":");
+decoder.write("d2");
+decoder.write(":a");
 decoder.write("ai12");
-decoder.write("34e1:bli1ei2eee");
+decoder.write("34e1:bl");
+decoder.write("i1ei2eee");
