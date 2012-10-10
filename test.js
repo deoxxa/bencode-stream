@@ -8,4 +8,4 @@ decoder.on("data", function(data) {
   console.log(data);
 });
 
-decoder.write("li10ei10ee");
+decoder.write("l4:aaaa4:aaaae");
