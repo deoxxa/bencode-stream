@@ -17,6 +17,6 @@ encoder.on("data", function(data) {
 
 decoder.write("d2");
 decoder.write(":a");
-decoder.write("ai12");
+decoder.write("ai-12");
 decoder.write("34e1:bl");
 decoder.write("i1ei2eee");
