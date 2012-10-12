@@ -1,22 +1,24 @@
 #!/usr/bin/env node
 
+var fs = require("fs");
+
 var bencode = require("./index");
 
 var decoder = new bencode.Decoder(),
     encoder = new bencode.Encoder();
 
 decoder.on("data", function(data) {
-  console.log("decoded", data);
+  if (data.type === "string-data") {
+//    data.data = data.data.toString();
+  }
+
+  console.log("<<<", data);
 
   encoder.write(data);
 });
 
 encoder.on("data", function(data) {
-  console.log("encoded", data);
+  console.log(">>>", data);
 });
 
-decoder.write("d2");
-decoder.write(":a");
-decoder.write("ai-12");
-decoder.write("34e1:bl");
-decoder.write("i1ei2eee");
+fs.createReadStream("./test.torrent").on("data", decoder.write.bind(decoder));
