@@ -9,16 +9,14 @@ var decoder = new bencode.Decoder(),
 
 decoder.on("data", function(data) {
   if (data.type === "string-data") {
-//    data.data = data.data.toString();
+    data.length = data.data.length;
   }
 
   console.log("<<<", data);
-
-  encoder.write(data);
 });
 
 encoder.on("data", function(data) {
   console.log(">>>", data);
 });
 
-fs.createReadStream("./test.torrent").on("data", decoder.write.bind(decoder));
+fs.createReadStream("./test.torrent").pipe(decoder).pipe(encoder).pipe(fs.createWriteStream("./out.torrent"));
