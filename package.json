@@ -21,6 +21,6 @@
   "author": "Conrad Pankoff <deoxxa@fknsrs.biz> (http://www.fknsrs.biz/)",
   "license": "BSD",
   "dependencies": {
-    "steez": "~0.0.2"
+    "steez": "~0.0.3"
   }
 }
