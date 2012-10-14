@@ -19,5 +19,8 @@
     "stream"
   ],
   "author": "Conrad Pankoff <deoxxa@fknsrs.biz> (http://www.fknsrs.biz/)",
-  "license": "BSD"
+  "license": "BSD",
+  "dependencies": {
+    "steez": "~0.0.2"
+  }
 }
