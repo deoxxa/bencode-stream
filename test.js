@@ -2,21 +2,22 @@
 
 var fs = require("fs");
 
-var bencode = require("./index");
+var bencode = require("./");
 
 var decoder = new bencode.Decoder(),
-    encoder = new bencode.Encoder();
+    encoder = new bencode.Encoder(),
+    accumulator = new bencode.Accumulator();
 
-decoder.on("data", function(data) {
-  if (data.type === "string-data") {
-    data.length = data.data.length;
-  }
-
-  console.log("<<<", data);
+decoder.on("data", function(obj) {
+  console.log("<<<", obj);
 });
 
-encoder.on("data", function(data) {
-  console.log(">>>", data);
+encoder.on("data", function(chunk) {
+  console.log(">>>", chunk);
 });
 
-fs.createReadStream("./test.torrent").pipe(decoder).pipe(encoder).pipe(fs.createWriteStream("./out.torrent"));
+accumulator.on("data", function(obj) {
+  console.log("---", obj);
+});
+
+fs.createReadStream("./test.torrent").pipe(decoder).pipe(accumulator).pipe(encoder).pipe(fs.createWriteStream("./out.torrent"));
