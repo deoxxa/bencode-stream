@@ -1,6 +1,6 @@
 {
   "name": "bencode-stream",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Bencode streaming encoder/decoder",
   "main": "index.js",
   "scripts": {
